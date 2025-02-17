@@ -19,8 +19,8 @@ def main():
     video_frames = read_video(input_video_path)
 
     # Detect Players and Ball
-    player_tracker = PlayerTracker(model_path='yolov8x')
-    ball_tracker = BallTracker(model_path='models/yolo5_last.pt')
+    player_tracker = PlayerTracker(model_path='yolo11n')
+    ball_tracker = BallTracker(model_path='models/last.pt')
 
     player_detections = player_tracker.detect_frames(video_frames,
                                                      read_from_stub=True,

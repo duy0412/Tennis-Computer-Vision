@@ -47,7 +47,7 @@ class BallTracker:
                         change_count+=1
             
                 if change_count>minimum_change_frames_for_hit-1:
-                    df_ball_positions['ball_hit'].iloc[i] = 1
+                    df_ball_positions.loc[i, 'ball_hit'] = 1
 
         frame_nums_with_ball_hits = df_ball_positions[df_ball_positions['ball_hit']==1].index.tolist()
 
@@ -88,7 +88,7 @@ class BallTracker:
             for track_id, bbox in ball_dict.items():
                 x1, y1, x2, y2 = bbox
                 cv2.putText(frame, f"Ball ID: {track_id}",(int(bbox[0]),int(bbox[1] -10 )),cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 255), 2)
-                cv2.rectangle(frame, (int(x1), int(y1)), (nt(x2), int(y2)), (0, 255, 255), 2)
+                cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 255), 2)
             output_video_frames.append(frame)
         
         return output_video_frames
