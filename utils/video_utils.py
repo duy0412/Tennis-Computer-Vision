@@ -1,7 +1,7 @@
 import cv2
 
-def read_video(path):
-    cap = cv2.VideoCapture(path)
+def read_video(video_path):
+    cap = cv2.VideoCapture(video_path)
     frames = []
     while True:
         ret, frame = cap.read()
